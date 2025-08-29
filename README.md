@@ -84,14 +84,6 @@ python -m venv .venv
 source .venv/bin/activate  # en Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
-
-Archivo `requirements.txt` sugerido:
-
-```txt
-matplotlib
-numpy
-```
-
 ---
 
 ## Uso
@@ -124,10 +116,6 @@ print(sol)
 - `alfa (α)`: razón de enfriamiento geométrico (p. ej., `0.95–0.995`). Valores más cercanos a 1 implican enfriamiento lento y mayor exploración.
 - `max_iter`: iteraciones por temperatura; aumentar mejora la cobertura del vecindario pero incrementa el costo computacional.
 
-### Representaciones y vecinos
-- **N‑Reinas**: mover una reina en su columna es barato y suficiente para explorar; se puede mejorar con **reinicios aleatorios** o con **min‑conflicts**.
-- **TSP**: el **2‑swap** es básico. Para mayor calidad, usar **2‑opt** o **3‑opt** como operador de vecindad.
-
 ---
 
 ## Reproducibilidad
@@ -148,15 +136,6 @@ np.random.seed(42)
 - **Evaluación de TSP**: costo de recomputar la ruta es \(\mathcal{O}(n)\); conviene **actualizar incrementalmente** para vecinos locales.
 - **Colinas** vs **Temple**: el **temple** añade factor por “temperaturas × iteraciones por T”.
 
----
-
-## Limitaciones y mejoras propuestas
-
-- Separar el código en **módulos** para evitar redefiniciones y choques de nombres.
-- Añadir **reinicios aleatorios** y **rastro de métricas** (costo por iteración) para análisis.
-- Incorporar **2‑opt/3‑opt** en TSP y **min‑conflicts** en N‑Reinas.
-- Parametrizar la **frecuencia de visualización**; en N‑Reinas (colinas) dibujar cada paso puede ser costoso.
-- Devolver también el **costo** además de la solución, para facilitar comparativas.
 
 ---
 
@@ -168,20 +147,3 @@ np.random.seed(42)
 > Los valores exactos varían por la semilla aleatoria y los parámetros.
 
 ---
-
-## Referencias breves
-
-- Kirkpatrick, Gelatt & Vecchi (1983) – *Optimization by Simulated Annealing*.
-- Russell & Norvig – *Artificial Intelligence: A Modern Approach*, capítulos de búsqueda local.
-
----
-
-## Licencia
-
-Elige una licencia (p. ej., MIT) y añádela como `LICENSE`. Ajusta este README si corresponde.
-
----
-
-## Agradecimientos
-
-Este proyecto se construyó con fines académicos para comparar heurísticas de búsqueda local con visualizaciones sencillas en Python.
