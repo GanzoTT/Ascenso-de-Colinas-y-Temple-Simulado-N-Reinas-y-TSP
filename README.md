@@ -87,21 +87,6 @@ Este repositorio contiene implementaciones educativas de **Ascenso de Colinas** 
 * `matplotlib`
 * `numpy` (solo se usa en una visualización de tablero)
 
-Instalación rápida:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate  # en Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-Archivo `requirements.txt` sugerido:
-
-```txt
-matplotlib
-numpy
-```
-
 ---
 
 ## Uso
@@ -113,32 +98,6 @@ python temple_y_colina.py
 ```
 
 Esto ejecutará, en orden: N‑Reinas (colinas), TSP (colinas), N‑Reinas (temple) y TSP (temple), mostrando las gráficas correspondientes.
-
-### 2) Usar funciones específicas en tu propio código
-
-```python
-from temple_y_colina import temple_simulado as sa_nreinas
-sol = sa_nreinas(n=8, temp_inicial=1000, temp_final=0.01, alfa=0.99, max_iter=1000)
-print(sol)
-```
-
-> **Sugerencia:** separa las versiones de `temple_simulado` (N‑Reinas y TSP) en módulos distintos o renómbralas (`temple_nreinas`, `temple_tsp`) para claridad.
-
----
-
-## Parámetros clave y *tuning*
-
-### Temple Simulado
-
-* `temp_inicial (T₀)`: si es muy alta, aceptará demasiados peores movimientos; si es baja, se comporta parecido a colinas.
-* `temp_final (T_f)`: temperatura de corte; bajar demasiado puede alargar el tiempo con poca ganancia.
-* `alfa (α)`: razón de enfriamiento geométrico (p. ej., `0.95–0.995`). Valores más cercanos a 1 implican enfriamiento lento y mayor exploración.
-* `max_iter`: iteraciones por temperatura; aumentar mejora la cobertura del vecindario pero incrementa el costo computacional.
-
-### Representaciones y vecinos
-
-* **N‑Reinas**: mover una reina en su columna es barato y suficiente para explorar; se puede mejorar con **reinicios aleatorios** o con **min‑conflicts**.
-* **TSP**: el **2‑swap** es básico. Para mayor calidad, usar **2‑opt** o **3‑opt** como operador de vecindad.
 
 ---
 
@@ -162,40 +121,18 @@ np.random.seed(42)
 
 ---
 
----
-
-## Limitaciones y mejoras propuestas
-
-* Separar el código en **módulos** para evitar redefiniciones y choques de nombres.
-* Añadir **reinicios aleatorios** y **rastro de métricas** (costo por iteración) para análisis.
-* Incorporar **2‑opt/3‑opt** en TSP y **min‑conflicts** en N‑Reinas.
-* Parametrizar la **frecuencia de visualización**; en N‑Reinas (colinas) dibujar cada paso puede ser costoso.
-* Devolver también el **costo** además de la solución, para facilitar comparativas.
-
----
-
 ## Ejemplos de salida esperada
 
+* **N‑Reinas (colinas)**: un vector como `[0, 4, 7, 5, 2, 6, 1, 3]` con algunos conflictos residuales (p. ej., `2 conflictos`). El algoritmo puede detenerse en un óptimo local sin resolver totalmente el problema.
+  <img width="460" height="658" alt="image" src="https://github.com/user-attachments/assets/12788f96-72c1-40b8-ba77-c36482aae998" />
+
+* **TSP (colinas)**: una permutación de ciudades (p. ej., `[3, 7, 1, 0, 2, 6, 5, 4]`) y su longitud total, que puede ser subóptima por estancarse en un mínimo local.
+  <img width="626" height="536" alt="image" src="https://github.com/user-attachments/assets/7cb3a69d-efbe-46a2-93b5-d16c3622ade5" />
+  
 * **N‑Reinas (temple)**: un vector como `[0, 4, 7, 5, 2, 6, 1, 3]` con `0 conflictos`.
+  <img width="362" height="392" alt="image" src="https://github.com/user-attachments/assets/6516c9bf-3cc9-43d3-80f9-52f15cacefe3" />
+
 * **TSP (temple)**: una permutación de ciudades (p. ej., `[3, 7, 1, 0, 2, 6, 5, 4]`) y su longitud total.
+  <img width="482" height="515" alt="image" src="https://github.com/user-attachments/assets/26fca973-a02c-4a9c-9e3f-c9541c6e035d" />
 
 > Los valores exactos varían por la semilla aleatoria y los parámetros.
-
----
-
-## Referencias breves
-
-* Kirkpatrick, Gelatt & Vecchi (1983) – *Optimization by Simulated Annealing*.
-* Russell & Norvig – *Artificial Intelligence: A Modern Approach*, capítulos de búsqueda local.
-
----
-
-## Licencia
-
-Elige una licencia (p. ej., MIT) y añádela como `LICENSE`. Ajusta este README si corresponde.
-
----
-
-## Agradecimientos
-
-Este proyecto se construyó con fines académicos para comparar heurísticas de búsqueda local con visualizaciones sencillas en Python.
