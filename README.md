@@ -137,6 +137,6 @@ np.random.seed(42)
 
 * **TSP (temple)**: una permutación de ciudades (p. ej., `[3, 7, 1, 0, 2, 6, 5, 4]`) y su longitud total.
 
-  <img width="482" height="515" alt="image" src="https://github.com/user-attachments/assets/26fca973-a02c-4a9c-9e3f-c9541c6e035d" />
+  <img width="474" height="510" alt="image" src="https://github.com/user-attachments/assets/5bee8786-5d3e-4c1a-b11c-190899debb9f" />
 
 > Los valores exactos varían por la semilla aleatoria y los parámetros.
