@@ -77,13 +77,6 @@ Este repositorio contiene implementaciones educativas de **Ascenso de Colinas** 
 - `matplotlib`
 - `numpy` (solo se usa en una visualización de tablero)
 
-Instalación rápida:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate  # en Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
 ---
 
 ## Uso
@@ -95,26 +88,6 @@ python temple_y_colina.py
 ```
 
 Esto ejecutará, en orden: N‑Reinas (colinas), TSP (colinas), N‑Reinas (temple) y TSP (temple), mostrando las gráficas correspondientes.
-
-### 2) Usar funciones específicas en tu propio código
-
-```python
-from temple_y_colina import temple_simulado as sa_nreinas
-sol = sa_nreinas(n=8, temp_inicial=1000, temp_final=0.01, alfa=0.99, max_iter=1000)
-print(sol)
-```
-
-> **Sugerencia:** separa las versiones de `temple_simulado` (N‑Reinas y TSP) en módulos distintos o renómbralas (`temple_nreinas`, `temple_tsp`) para claridad.
-
----
-
-## Parámetros clave y *tuning*
-
-### Temple Simulado
-- `temp_inicial (T₀)`: si es muy alta, aceptará demasiados peores movimientos; si es baja, se comporta parecido a colinas.
-- `temp_final (T_f)`: temperatura de corte; bajar demasiado puede alargar el tiempo con poca ganancia.
-- `alfa (α)`: razón de enfriamiento geométrico (p. ej., `0.95–0.995`). Valores más cercanos a 1 implican enfriamiento lento y mayor exploración.
-- `max_iter`: iteraciones por temperatura; aumentar mejora la cobertura del vecindario pero incrementa el costo computacional.
 
 ---
 
