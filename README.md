@@ -124,15 +124,19 @@ np.random.seed(42)
 ## Ejemplos de salida esperada
 
 * **N‑Reinas (colinas)**: un vector como `[0, 4, 7, 5, 2, 6, 1, 3]` con algunos conflictos residuales (p. ej., `2 conflictos`). El algoritmo puede detenerse en un óptimo local sin resolver totalmente el problema.
+
   <img width="460" height="658" alt="image" src="https://github.com/user-attachments/assets/12788f96-72c1-40b8-ba77-c36482aae998" />
 
 * **TSP (colinas)**: una permutación de ciudades (p. ej., `[3, 7, 1, 0, 2, 6, 5, 4]`) y su longitud total, que puede ser subóptima por estancarse en un mínimo local.
+
   <img width="626" height="536" alt="image" src="https://github.com/user-attachments/assets/7cb3a69d-efbe-46a2-93b5-d16c3622ade5" />
   
 * **N‑Reinas (temple)**: un vector como `[0, 4, 7, 5, 2, 6, 1, 3]` con `0 conflictos`.
+
   <img width="362" height="392" alt="image" src="https://github.com/user-attachments/assets/6516c9bf-3cc9-43d3-80f9-52f15cacefe3" />
 
 * **TSP (temple)**: una permutación de ciudades (p. ej., `[3, 7, 1, 0, 2, 6, 5, 4]`) y su longitud total.
+
   <img width="482" height="515" alt="image" src="https://github.com/user-attachments/assets/26fca973-a02c-4a9c-9e3f-c9541c6e035d" />
 
 > Los valores exactos varían por la semilla aleatoria y los parámetros.
